@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  root "employees#index"
+
+  resources :employees do
+    collection do
+      get :soft_deleted_employees
+    end
+    member do
+      patch :toggle_status
+      patch :restore
+      patch :permanent_destroy
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
