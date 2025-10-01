@@ -17,5 +17,4 @@ test:
 production:
   <<: *default
   database: ems_production
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  url: <%= ENV["DATABASE_URL"] %>
